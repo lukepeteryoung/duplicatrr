@@ -45,3 +45,5 @@ Select your target media library from the dynamically generated menu.
 Choose between Single or Bulk deletion mode to start reclaiming your storage space!
 
 ⚠️ Note: After executing deletions, your lower-quality files will be immediately erased from the disk. Plex will reflect a red trash icon on those items until your server runs its next scheduled library scan or you manually click "Scan Library Files" on your dashboard.
+
+ALWAYS TEST ON A SMALL LIBRARY FIRST.
