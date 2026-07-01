@@ -1,35 +1,46 @@
-Welcome to DUPLICATRR
+DUPLICATRR
 
-Overview - 
-This script is an interactive Plex Media Server Database Utility designed to find, analyze, and purge lower-quality duplicate movie files directly from your local storage drives, helping you reclaim wasted disk space.
+A smart, interactive PowerShell utility that connects to your Plex Media Server API to find duplicate movies, compare their quality metrics, and permanently purge the inferior versions directly from your local storage drives to reclaim wasted disk space.
 
-Core Functionality - 
-Plex API Integration: It securely connects to a local Plex Media Server using a custom IP/Port configuration and an account authentication token (X-Plex-Token) to fetch library metadata.
+Unlike standard Plex-based deletion—which can sometimes accidentally wipe out an entire un-split movie cluster—this tool identifies exactly which file is the bottleneck and removes only the low-quality file path directly from the file system, leaving your pristine high-quality copy untouched.
 
-Intelligent Duplicate Identification: The script polls your target Plex libraries specifically for item duplicates. Crucially, it tracks down files that might be unmerged (appearing as separate items on your Plex dashboard) by grouping media properties strictly by matching Title and Release Year.
+🚀 Features
+🔍 Smart Detection & Cross-Grouping
+Unmerged Duplicate Matching: Automatically groups media by matching Title and Release Year. This ensures that even if duplicates are sitting as completely separate entries on your Plex dashboard, the script will still catch them.
 
-Quality Sorting Logic: Within every identified duplicate group, the script dynamically evaluates each file's technical statistics (Video Resolution and Bitrate). It automatically flags the highest-quality version to KEEP and marks all lower-quality files for DELETION.
+Deep Metadata Inspection: Polls the deepest layout structures of the Plex API to extract exact file resolutions, bitrates, file sizes, and absolute storage track paths.
 
-Operating Modes - 
-When you select a media library, the script provides two ways to manage the deletions:
+📊 Automated Quality Sorting
+Smart Hierarchy: Automatically evaluates every file inside a duplicate cluster based on Video Resolution and Bitrate.
 
-Single Deletion (Interactive One-by-One)
+Clear Tagging: Intuitively flags the highest-quality file as [KEEPING] and isolates the inferior versions as [DELETING].
 
-Iterates through duplicate groups one movie at a time.
+🛠 Dual Processing Modes
+Mode 1: Single Deletion (Interactive) * Loops through detected duplicates one movie at a time.
 
-Prints a clean visual comparison showing the file resolution, size, exact file path, and a [KEEPING] vs [DELETING] status.
+Shows a side-by-side comparison of the files and prompts you individually before wiping anything from the disk.
 
-Prompts you individually after each title to confirm if you want to permanently erase the inferior copy from your drive.
+Mode 2: Bulk Deletion (Mass Clear)
 
-Bulk Deletion (Mass Review & Clear)
+Scans and prints a comprehensive roster of all library duplicates in one scrolling feed.
 
-Scans the entire library and prints out a comprehensive list of all duplicate groups at once.
+Storage Space Tally: Aggregates the raw byte sizes of all files flagged for removal and outputs a final tally of the Total Files and Total Gigabytes (GB) to be saved right before giving you a double-confirmed option to mass delete.
 
-Calculates and summarizes the metrics at the bottom of the feed—displaying the Total Number of Files Slated for Removal and the Total Aggregate Storage Space (in GB) you will recover.
+🔒 Direct Storage Safety
+File-System Level Execution: Bypasses Plex deletion APIs in favor of native PowerShell Remove-Item commands.
 
-Provides a singular, double-confirmed prompt to mass delete every lower-quality file on the list in one action.
+Path Validation: Integrates strict Test-Path logic to verify a file's physical presence and connectivity (e.g., handling network drops) before executing any destructive logic.
 
-Hard Drive Safety Focus - 
-Rather than telling Plex to delete the file (which can sometimes delete an entire un-split movie cluster completely from your dashboard), this script uses native PowerShell file-system logic (Test-Path and Remove-Item). It verifies the files physically exist on your drive and deletes the specific file paths directly off the disk, leaving your pristine, higher-quality version untouched.
+🛠 Setup & Usage
+Open the script and configure your environment variables at the top:
 
-Crafted by Luke Young
+PowerShell
+$PlexUrl   = "http://127.0.0.1:32400"
+$PlexToken = "YOUR_PLEX_TOKEN_HERE"
+Run the script in an elevated PowerShell console.
+
+Select your target media library from the dynamically generated menu.
+
+Choose between Single or Bulk deletion mode to start reclaiming your storage space!
+
+⚠️ Note: After executing deletions, your lower-quality files will be immediately erased from the disk. Plex will reflect a red trash icon on those items until your server runs its next scheduled library scan or you manually click "Scan Library Files" on your dashboard.
