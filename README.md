@@ -7,7 +7,7 @@ Unlike standard Plex-based deletion—which can sometimes accidentally wipe out 
 
 🚀 Features
 🔍 Smart Detection & Cross-Grouping
-Unmerged Duplicate Matching: Automatically groups media by matching Title and Release Year. This ensures that even if duplicates are sitting as completely separate entries on your Plex dashboard, the script will still catch them.
+Unmerged Duplicate Matching: Automatically groups media by matching Title and Release Year, Filters out worse versions including CamRip, Samples. This ensures that even if duplicates are sitting as completely separate entries on your Plex dashboard, the script will still catch them.
 
 Deep Metadata Inspection: Polls the deepest layout structures of the Plex API to extract exact file resolutions, bitrates, file sizes, and absolute storage track paths.
 
