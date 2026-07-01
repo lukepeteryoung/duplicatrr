@@ -1,4 +1,4 @@
-Here is a concise breakdown of what this PowerShell script does:
+Welcome to DUPLICATRR
 
 Overview
 This script is an interactive Plex Media Server Database Utility designed to find, analyze, and purge lower-quality duplicate movie files directly from your local storage drives, helping you reclaim wasted disk space.
