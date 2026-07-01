@@ -33,7 +33,7 @@ File-System Level Execution: Bypasses Plex deletion APIs in favor of native Powe
 Path Validation: Integrates strict Test-Path logic to verify a file's physical presence and connectivity (e.g., handling network drops) before executing any destructive logic.
 
 🛠 Setup & Usage
-Open the script and configure your environment variables at the top:
+Right click to open the script with notepad and configure your environment variables at the top:
 
 PowerShell
 $PlexUrl   = "http://127.0.0.1:32400"
