@@ -46,4 +46,5 @@ Choose between Single or Bulk deletion mode to start reclaiming your storage spa
 
 ⚠️ Note: After executing deletions, your lower-quality files will be immediately sent to Recycle Bin for your checking and deletion. Plex will reflect a red trash icon on those items until your server runs its next scheduled library scan or you manually click "Scan Library Files" on your dashboard.
 
-ALWAYS TEST ON A SMALL LIBRARY FIRST.
+*ALWAYS TEST ON A SMALL LIBRARY FIRST.
+MOVIER AND TV VERSIONS INCLUDED.
