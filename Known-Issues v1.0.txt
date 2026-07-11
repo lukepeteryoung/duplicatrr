@@ -4,4 +4,4 @@ Known Issues Movies:
 - Extra or Special Episodes for TV Shows may be prioritised over the actual episode file.
 
 Known issues TV Series:
-- The scanner can sometimes mistake a subfoler with the same name as the actual file then flag as a duplicate, resulting in deletion.
+- The scanner can sometimes mistake a subfoler with the same name as the actual file then flag as a duplicate, resulting in deletion of the file.
